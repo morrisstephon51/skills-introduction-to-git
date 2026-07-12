@@ -296,10 +296,11 @@ function matchesPattern(startRow, startCol) {
 
 // Clear matched pattern
 function clearPattern(startRow, startCol) {
-  // Clear all blocks on the board
-  for (let row = 0; row < ROWS; row++) {
-    for (let col = 0; col < COLS; col++) {
-      board[row][col] = 0;
+  for (let row = 0; row < PATTERN_SIZE; row++) {
+    for (let col = 0; col < PATTERN_SIZE; col++) {
+      if (targetPattern.pattern[row][col] === 1) {
+        board[startRow + row][startCol + col] = 0;
+      }
     }
   }
 }
